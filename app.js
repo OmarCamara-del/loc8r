@@ -19,6 +19,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Bootstrap static routes - ADD THESE THREE LINES:
+app.use('/bootstrap/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use('/bootstrap/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+app.use('/bootstrap/fonts', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/fonts')));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
